@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<!-- website title //css file linked visual.css -->
+
+<head>
+    <!-- website title-->
+    <title>AP Biology</title>
+    <link href="visual.css" rel="stylesheet" />
+    <!-- JS to check the the password match the confirm password-->
+    <script>
+        function confirmPass() {
+            var pass1 = document.forms["registrationForm"]["Password"].value;
+            var pass2 = document.forms["registrationForm"]["confirmPassword"].value;
+            if (pass1 != pass2) {
+                alert("Passwords do not match");
+                return false;
+            } else if (pass1 == "") {
+                alert("Password cannot be blank");
+                return false;
+            }
+        }
+        //end script
+    </script>
+
+</head>
+
+<body>
+    <!--the header of the page contains a link to 
+    home page and to questions -->
+    <header>
+        <nav>
+            <h1>AP Biology</h1>
+            <ul>
+                <li><a href="login.php">Login</a></li>
+                <!-- login page hyperlink-->
+                <li><a href="index.html">Registration</a></li>
+                <!-- registration page hyperlink-->
+
+            </ul>
+
+        </nav>
+
+    </header>
+    <p>Enter Your Information Bellow:</p>
+
+    <!-- registration form -->
+    <form name="registrationForm" action="addUser.php" onsubmit="return confirmPass()" method="POST">
+        <!-- First name and Last name-->
+        First Name: <input type="text" name="firstName" required> <br> Last Name: <input type="text" name="LastName" required><br>
+        <!-- Email address-->
+        Email Address: <input type="email" name="EmailAddress" required><br>
+        <!-- Password and the confirmation-->
+        Password: <input type="password" name="Password" required><br> Password:
+        <input type="password" name="confirmPassword" required><br>
+        <!-- Date of birth-->
+        Date Of Birth(YYYY-MM-DD): <input type="date" name="DOB"><br>
+        <!-- user pick for a drop down list the type of the user (Student or Teacher)
+        to define which table the user belongs-->
+        Student/Teacher:<select name="Type">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+
+        <br><input type="submit" class="btn btn-primary btn-md" role="button"><br />
+    </form>
+    <!-- end registration form-->
+</body>
+
+</html>
